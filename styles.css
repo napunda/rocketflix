@@ -121,6 +121,17 @@ main {
   object-position: center;
 }
 
+.movie .img-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.movie .img-container .year {
+  color: #fff;
+}
+
 .movie .content-movie span {
   text-align: start;
   font-style: normal;

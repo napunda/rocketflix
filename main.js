@@ -30,12 +30,18 @@ function getMovie() {
       return response.json();
     })
     .then((jsonBody) => {
+      console.log(jsonBody);
       const title = jsonBody.results[randomNumber].title;
       const overview = jsonBody.results[randomNumber].overview;
       const img = IMG_URL + jsonBody.results[randomNumber].poster_path;
+      let date = new Date(jsonBody.results[randomNumber].release_date);
+      date = date.getFullYear();
 
       const html = `
-      <img class="img" src="${img}" alt="" />
+      <div class="img-container">
+        <img class="img" src="${img}" alt="" />
+        <span class="year">${date}</span>
+      </div>
           <div class="content-movie">
             <span class="titleMovie">${title}</span>
             <div class="description">${overview}</div>
