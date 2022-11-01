@@ -21,8 +21,6 @@ function getMovie() {
       randomPage = Math.floor(Math.random() * 98) + 1;
       break;
   }
-  console.log(randomPage);
-  console.log(ramdonCategory);
 
   const movie = fetch(
     `${BASE_URL}${category[ramdonCategory]}?api_key=${API_KEY}&${language}&page=${randomPage}`

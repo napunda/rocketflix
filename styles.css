@@ -9,7 +9,8 @@ main {
   justify-content: center;
   align-items: flex-start;
   font-family: "Poppins";
-  height: 100vh;
+  min-height: 100vh;
+  height: 100%;
   width: 100vw;
   background: linear-gradient(
     67.08deg,
@@ -18,6 +19,36 @@ main {
     #c12a23 99.97%
   );
   padding-top: 200px;
+}
+@media (max-width: 960px) {
+  main {
+    padding-top: 100px;
+  }
+  .content .title {
+    font-size: 30px !important;
+  }
+}
+@media (max-width: 600px) {
+  main {
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 0;
+    align-items: center;
+  }
+  .content .title {
+    font-size: 25px !important;
+  }
+  .content .logo {
+    height: 70px !important;
+  }
+  .movie {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .movie .content-movie .description {
+    font-size: 14px !important;
+  }
 }
 
 .content {
