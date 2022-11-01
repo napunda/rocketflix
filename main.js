@@ -6,7 +6,8 @@ function getMovie() {
   const category = ["popular", "upcoming", "top_rated", "now_playing"];
   const ramdonCategory = Math.floor(Math.random() * 3);
   const randomNumber = Math.floor(Math.random() * 19);
-  console.log(category[ramdonCategory], randomNumber);
+  // console.log(category[ramdonCategory], randomNumber);
+
   let randomPage = 1;
   switch (ramdonCategory) {
     case 0:
@@ -30,7 +31,6 @@ function getMovie() {
       return response.json();
     })
     .then((jsonBody) => {
-      console.log(jsonBody);
       const title = jsonBody.results[randomNumber].title;
       const overview = jsonBody.results[randomNumber].overview;
       const img = IMG_URL + jsonBody.results[randomNumber].poster_path;
