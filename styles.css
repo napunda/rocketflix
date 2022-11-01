@@ -26,6 +26,8 @@ main {
   }
   .content .title {
     font-size: 30px !important;
+    line-height: 30px !important;
+    text-align: center !important;
   }
 }
 @media (max-width: 600px) {
