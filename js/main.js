@@ -22,6 +22,7 @@ const search = {
     }
 
     const url = `${BASE_URL}${category[ramdonCategory]}?api_key=${API_KEY}&${language}&page=${randomPage}`;
+    console.log(url);
 
     return url;
   },
@@ -31,16 +32,32 @@ const search = {
     return movies;
   },
   getMovie(movies) {
-    // console.log(movies);
+    console.log(movies);
     const moviesArray = movies.results;
+    console.log(moviesArray);
     let moviesArrayFiltered = [];
     moviesArray.forEach((element) => {
       if (
-        element.overview.length > 0 &&
-        element.title.length > 0 &&
-        element.poster_path.length > 0
+        element.hasOwnProperty("overview") == true &&
+        element.hasOwnProperty("title") == true &&
+        element.hasOwnProperty("poster_path") == true &&
+        element.hasOwnProperty("release_date") == true
       ) {
-        moviesArrayFiltered.push(element);
+        if (
+          element.overview !== null &&
+          element.title !== null &&
+          element.poster_path !== null &&
+          element.release_date !== null
+        ) {
+          if (
+            element.overview.length > 0 &&
+            element.title.length > 0 &&
+            element.poster_path.length > 0 &&
+            element.release_date.length > 0
+          ) {
+            moviesArrayFiltered.push(element);
+          }
+        }
       }
     });
 
