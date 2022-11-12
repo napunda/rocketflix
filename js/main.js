@@ -22,62 +22,53 @@ const search = {
     }
 
     const url = `${BASE_URL}${category[ramdonCategory]}?api_key=${API_KEY}&${language}&page=${randomPage}`;
-    console.log(url);
-
     return url;
   },
+
   async fetchMovies() {
     const response = await fetch(search.genUrl());
     const movies = await response.json();
     return movies;
   },
   getMovie(movies) {
-    console.log(movies);
-    const moviesArray = movies.results;
-    console.log(moviesArray);
+    let moviesArrayMaped = [];
+    if (movies.results.length > 0) {
+      moviesArrayMaped = movies.results.map((item) => {
+        return {
+          title: item.title,
+          overview: item.overview,
+          img_path: item.poster_path,
+          year: item.release_date,
+        };
+      });
+    }
+
     let moviesArrayFiltered = [];
-    moviesArray.forEach((element) => {
-      if (
-        element.hasOwnProperty("overview") == true &&
-        element.hasOwnProperty("title") == true &&
-        element.hasOwnProperty("poster_path") == true &&
-        element.hasOwnProperty("release_date") == true
-      ) {
-        if (
-          element.overview !== null &&
-          element.title !== null &&
-          element.poster_path !== null &&
-          element.release_date !== null
-        ) {
-          if (
-            element.overview.length > 0 &&
-            element.title.length > 0 &&
-            element.poster_path.length > 0 &&
-            element.release_date.length > 0
-          ) {
-            moviesArrayFiltered.push(element);
-          }
+    if (moviesArrayMaped.length > 0) {
+      moviesArrayFiltered = moviesArrayMaped.filter((item) => {
+        if (item.title && item.overview && item.img_path && item.year) {
+          return item;
         }
-      }
-    });
+      });
+    }
 
     const randomIndex = Math.floor(Math.random() * moviesArrayFiltered.length);
-    const movie = {
-      title: moviesArrayFiltered[randomIndex].title,
-      year: new Date(
-        moviesArrayFiltered[randomIndex].release_date
-      ).getFullYear(),
-      overview: moviesArrayFiltered[randomIndex].overview,
-      img_path: moviesArrayFiltered[randomIndex].poster_path,
-    };
-    // console.log(moviesArrayFiltered);
-    // console.log(movie);
+    let movie = {};
+    if (moviesArrayFiltered.length > 0) {
+      movie = {
+        title: moviesArrayFiltered[randomIndex].title,
+        year: new Date(moviesArrayFiltered[randomIndex].year).getFullYear(),
+        overview: moviesArrayFiltered[randomIndex].overview,
+        img_path: moviesArrayFiltered[randomIndex].img_path,
+      };
+    } else {
+      newSearch();
+    }
     return movie;
   },
   insertHTML(movie) {
     const { title, year, overview, img_path } = movie;
 
-    // console.log(year, overview, title, img_path);
     const html = `
        <div class="img-container">
          <img class="img" src="${IMG_URL + img_path}" alt="" />
@@ -100,7 +91,9 @@ function init() {
 
 async function newSearch() {
   const movies = await search.fetchMovies();
-  search.insertHTML(search.getMovie(movies));
+  if (movies) {
+    search.insertHTML(search.getMovie(movies));
+  }
 }
 
 init();
