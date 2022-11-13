@@ -14,7 +14,7 @@ const search = {
             randomPage = Math.floor(Math.random() * 500) + 1;
             break;
           case 1:
-            randomPage = Math.floor(Math.random() * 20) + 1;
+            randomPage = Math.floor(Math.random() * 15) + 1;
             break;
           case 2:
             randomPage = Math.floor(Math.random() * 500) + 1;
@@ -31,7 +31,7 @@ const search = {
           if (element == "popular") {
             randomPage = Math.floor(Math.random() * 500) + 1;
           } else if (element == "upcoming") {
-            randomPage = Math.floor(Math.random() * 20) + 1;
+            randomPage = Math.floor(Math.random() * 15) + 1;
           } else if (element == "top_rated") {
             randomPage = Math.floor(Math.random() * 500) + 1;
           } else if (element == "now_playing") {
@@ -46,7 +46,7 @@ const search = {
           if (element == "popular") {
             randomPage = Math.floor(Math.random() * 500) + 1;
           } else if (element == "upcoming") {
-            randomPage = Math.floor(Math.random() * 20) + 1;
+            randomPage = Math.floor(Math.random() * 15) + 1;
           } else if (element == "top_rated") {
             randomPage = Math.floor(Math.random() * 500) + 1;
           } else if (element == "now_playing") {
@@ -61,7 +61,7 @@ const search = {
           if (element == "popular") {
             randomPage = Math.floor(Math.random() * 500) + 1;
           } else if (element == "upcoming") {
-            randomPage = Math.floor(Math.random() * 20) + 1;
+            randomPage = Math.floor(Math.random() * 15) + 1;
           } else if (element == "top_rated") {
             randomPage = Math.floor(Math.random() * 500) + 1;
           } else if (element == "now_playing") {
@@ -78,7 +78,7 @@ const search = {
           randomPage = Math.floor(Math.random() * 500) + 1;
           break;
         case 1:
-          randomPage = Math.floor(Math.random() * 20) + 1;
+          randomPage = Math.floor(Math.random() * 15) + 1;
           break;
         case 2:
           randomPage = Math.floor(Math.random() * 500) + 1;
