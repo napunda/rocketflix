@@ -138,6 +138,7 @@ main {
   align-items: center;
   flex-direction: column;
   gap: 10px;
+  position: relative;
 }
 
 .movie .img-container .year {
@@ -219,4 +220,14 @@ main {
   .categories {
     gap: 10px;
   }
+}
+
+.rate {
+  position: absolute;
+  top: -25px;
+  right: 0;
+  color: #fff;
+  display: flex;
+  gap: 5px;
+  align-items: center;
 }

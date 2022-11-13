@@ -107,6 +107,7 @@ const search = {
           overview: item.overview,
           img_path: item.poster_path,
           year: item.release_date,
+          rate: item.vote_average,
         };
       });
     }
@@ -114,7 +115,13 @@ const search = {
     let moviesArrayFiltered = [];
     if (moviesArrayMaped.length > 0) {
       moviesArrayFiltered = moviesArrayMaped.filter((item) => {
-        if (item.title && item.overview && item.img_path && item.year) {
+        if (
+          item.title &&
+          item.overview &&
+          item.img_path &&
+          item.year &&
+          item.rate
+        ) {
           return item;
         }
       });
@@ -128,6 +135,7 @@ const search = {
         year: new Date(moviesArrayFiltered[randomIndex].year).getFullYear(),
         overview: moviesArrayFiltered[randomIndex].overview,
         img_path: moviesArrayFiltered[randomIndex].img_path,
+        rate: moviesArrayFiltered[randomIndex].rate,
       };
     } else {
       app.newSearch();
@@ -158,12 +166,13 @@ const DOM = {
     return tags;
   },
   insertMovie(movie) {
-    const { title, year, overview, img_path } = movie;
+    const { title, year, overview, img_path, rate } = movie;
 
     const html = `
        <div class="img-container">
          <img class="img" src="${IMG_URL + img_path}" alt="" />
          <span class="year">${year}</span>
+         <span class="rate">${rate}<i class="fas fa-star"></i></span>
        </div>
            <div class="content-movie">
              <span class="titleMovie">${title}</span>
