@@ -152,3 +152,47 @@ main {
   margin-top: 20px;
   color: #fffcf9;
 }
+
+.content .loader-ative {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  border: solid 5px #fff;
+  border-left: solid 5px #c12a23;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  70% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.categories {
+  margin-top: 20px;
+  display: flex;
+  gap: 20px;
+}
+
+.categories .category-group {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.categories .category-group label {
+  font-size: 18px;
+  font-weight: 400;
+  color: #fff;
+}
+
+.categories .category-group input {
+  height: 20px;
+  width: 20px;
+}
