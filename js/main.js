@@ -2,13 +2,11 @@ import { API_KEY, BASE_URL, IMG_URL, language } from "./api.js";
 
 const search = {
   genUrl() {
-    let category = [];
+    let category = DOM.getTags();
     let randomPage = 1;
     let ramdonCategory = null;
 
     if (category.length > 0) {
-      category = DOM.getTags();
-
       if (category.length == 4) {
         ramdonCategory = Math.floor(Math.random() * 3);
         switch (ramdonCategory) {
