@@ -172,10 +172,13 @@ const DOM = {
        <div class="img-container">
          <img class="img" src="${IMG_URL + img_path}" alt="" />
          <span class="year">${year}</span>
-         <span class="rate">${rate}<i class="fas fa-star"></i></span>
+         
        </div>
            <div class="content-movie">
+            <div class='title-box'>
              <span class="titleMovie">${title}</span>
+             <span class="rate">${rate}<i class="fas fa-star"></i></span>
+             </div>
              <div class="description">${overview}</div>
            </div>
       `;
