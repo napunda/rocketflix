@@ -145,7 +145,7 @@ main {
   color: #fff;
 }
 
-.movie .content-movie span {
+.movie .content-movie .titleMovie {
   text-align: start;
   font-style: normal;
   font-weight: 700;
@@ -227,10 +227,14 @@ main {
   flex-direction: column;
 }
 .rate {
-  font-size: 12px;
+  font-size: 16px;
   right: 0;
   color: #fff;
   display: flex;
   align-items: center;
   gap: 5px;
+}
+
+.rate i {
+  color: #f5c518 !important;
 }
